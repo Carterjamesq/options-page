@@ -1,5 +1,18 @@
 <?php
 
+// Add options page to the WordPress admin menu
+function my_theme_options_page() {
+    add_menu_page(
+        'Theme Options',           // Page title
+        'Theme Options',           // Menu title
+        'manage_options',          // Capability required to access the page
+        'my-theme-options',        // Menu slug
+        'my_theme_options_content', // Callback function to render the page content
+		
+    );
+}
+add_action('admin_menu', 'my_theme_options_page');
+
 // Render the content of the options page
 function my_theme_options_content() {
     ?>
